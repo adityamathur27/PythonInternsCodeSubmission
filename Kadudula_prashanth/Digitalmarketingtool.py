@@ -50,3 +50,6 @@ df = pd.DataFrame(data=questions_dict)
 df
 
 
+df.to_csv(keyword1+"_questions.csv")
+
+
