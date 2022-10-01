@@ -3,7 +3,7 @@ import pandas as pd #library to represent responses in 2D format
 import json #library for data reprsentation during transmission
 from datetime import date,timedelta #library for datemangement
 questions_list=[]
-keyword=input("enter the keyword:")
+keyword=input("enter the keyword")
 keyword1=keyword
 site_list=["quora.com","reditt.com"]
 for l in site_list:
@@ -14,7 +14,6 @@ for l in site_list:
     #print("GOOGLE URL:"+google_url)
     response=requests.get(google_url)
     #print("responses:"+str(response.text))
-    
     #convert response string to jason object
     json_response=json.loads(response.text)
     search_time=json_response["searchInformation"]["searchTime"]
@@ -32,24 +31,16 @@ for l in site_list:
        title = title.replace(" - Quora","")
        questions_list.append(title)
        #print(title)
-       
-   
-   
     except Exception as e:
         pass
-     
-     
-
     # Reset the keyword
     keyword = keyword1
-
 # questions_list
 questions_dict = {"Questions": questions_list}
 df = pd.DataFrame(data=questions_dict)
 #export the data to a file
 df
-
-
+#now export it into a csv file
 df.to_csv(keyword1+"_questions.csv")
 
 
