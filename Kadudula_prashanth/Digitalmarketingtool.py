@@ -3,7 +3,7 @@ import pandas as pd #library to represent responses in 2D format
 import json #library for data reprsentation during transmission
 from datetime import date,timedelta #library for datemangement
 questions_list=[]
-keyword=input("enter the keyword")
+keyword=input("enter the keyword:")
 keyword1=keyword
 site_list=["quora.com","reditt.com"]
 for l in site_list:
@@ -48,4 +48,5 @@ questions_dict = {"Questions": questions_list}
 df = pd.DataFrame(data=questions_dict)
 #export the data to a file
 df
+
 
