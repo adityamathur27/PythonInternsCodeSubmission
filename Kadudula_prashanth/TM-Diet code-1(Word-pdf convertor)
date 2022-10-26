@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Oct  8 09:43:13 2022
+
+@author: Prashanth K
+"""
+
+import aspose.words as aw
+doc=aw.Document("KOLKATTA-BENGALI_FOLDER_(English)_-_Updated_14.02.2019.docx")
+pagecount=doc.page_count
+for page in range(0,pagecount):
+    extractedPage=doc.extract_pages(page,1)
+    extractedPage.save(f"split_by_page{page+1}.pdf")
